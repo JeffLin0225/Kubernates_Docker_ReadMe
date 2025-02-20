@@ -1,0 +1,26 @@
+Docker 佔用了多少磁碟空間
+docker system df
+
+清除未使用的容器、映像、網路（緩存）
+docker system prune -a -f
+
+刪除未使用的 Volume
+docker volume prune -f
+
+
+===========================
+檢查 Docker 是否仍有容器
+docker ps -a
+
+檢查 Docker 是否仍有映像
+docker images
+
+
+docker volume ls
+docker volume inspect <VOLUME_NAME>
+
+docker network ls
+docker network inspect <NETWORK_NAME>
+
+
+

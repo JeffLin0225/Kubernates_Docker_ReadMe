@@ -1,0 +1,45 @@
+啟動 minikube
+minikube start
+
+停止 minikube
+minikube stop
+
+minikube儀表板
+minikube dashboard
+
+dockerHub拉取映像檔 ， 啟動 POD , Service
+kubectl create deployment my-nginx --image=nginx
+
+如果是 ClusterIP 類型，您只能在集群內部訪問它
+這時候可以使用 kubectl port-forward 命令將端口轉發到本地：
+kubectl port-forward pod/my-nginx-5b584c864b-7xxdm 8080:80
+kubectl port-forward svc/my-nginx-service 8080:80
+
+
+您可以使用 kubectl expose 命令來創建一個 Service，例如：
+kubectl expose deployment my-nginx --type=ClusterIP --port=80 --target-port=80
+
+查看 POD 
+kubectl get pods   
+
+查看 Service
+kubectl get svc 
+
+查看（依照service）yaml設定檔
+kubectl get svc <service-name> -o yaml
+kubectl get pod <service-name> -o yaml
+
+
+查看映像
+kubectl get  deployment
+
+刪除映像
+kubectl delete deployment < my-nginx >
+
+
+===============================
+完全刪除 Minikube（清空所有內容）
+minikube delete --all --purge
+
+檢查 Minikube 是否已刪除
+minikube profile list
