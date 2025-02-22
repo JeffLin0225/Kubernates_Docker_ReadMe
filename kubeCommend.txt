@@ -1,3 +1,6 @@
+eval $(minikube -p minikube docker-env)
+docker build -t blogservice:latest .   
+################# 創建服務 ######################
 啟動 minikube : 
 minikube start
 
